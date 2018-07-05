@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const expenditureSchema = mongoose.Schema({
-    _id: mongoose.Types.ObjectId,
+    _id: mongoose.Schema.Types.ObjectId,
     type: String,
     source: String,
     date: String,

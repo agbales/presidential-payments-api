@@ -9,6 +9,7 @@
   "author": "Andrew Bales",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "query-string": "^6.1.0"
   }
 }

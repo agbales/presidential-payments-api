@@ -2,18 +2,28 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
+    let queries = req.query;
     res.status(200).json({
-        message: 'Handling GET to /spending'
+        message: 'Handling GET to /spending',
+        queries: queries
     })
 });
 
 router.get('/:source', (req, res, next) => {
-    const source = req.params.source
-    // if all ... 
+    const source = req.params.source;
+    const queries = req.query;
+    const parsed = queryString.parse(req.query);
+
     if (source == "all") {
-        res.status(200).json({ message: "all sources :) "});
+        res.status(200).json({ 
+            message: "return all sources :) "
+        });
     } else {
-        res.status(200).json({ message: "filter... "});
+        res.status(200).json({ 
+            message: "all sources :) ",
+            query: queries,
+            queryString: parsed
+        });
     }
 });
 

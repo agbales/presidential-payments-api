@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 
 // logging
 const morgan = require('morgan'); 
 app.use(morgan('dev'));
 
 const spendingRoutes = require('./api/routes/spending');
+
+mongoose.connect('mongodb+srv://agbales:' + process.env.MONGO_ATLASS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/test?retryWrites=true')
 
 app.use('/spending', spendingRoutes);
 app.use((req, res, next) => {

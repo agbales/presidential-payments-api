@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Expenditure = require('..models/expenditure');
 
 router.get('/', (req, res, next) => {
     let queries = req.query;

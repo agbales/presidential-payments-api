@@ -8,7 +8,7 @@ Example query:
 http://localhost:3000/?amount%3E=10000&amount%3C=15000&state=FL
 ```
 
-The response includes the **parsed query**, **total number of records returned**, & **the matching expenditures**.
+The response includes the parsed query, total number of records returned, & the matching expenditures.
 
 Example resonse:
 

@@ -24,7 +24,8 @@ app.get('/', (req, res) => {
     const uri = "mongodb+srv://agbales:" + process.env.MONGO_ATLAS_PW + "@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending";
     mongo.connect(uri, { useNewUrlParser: false }, function(err, client) {
         const collection = client.db("trump-spending").collection("propublica_trump_spending");
-        collection.find(criteria).limit(5)
+        // limiting 10 for now
+        collection.find(criteria).limit(10)
             .toArray()
             .then(resp => {
                 res.status(200).json({item: resp})

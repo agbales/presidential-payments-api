@@ -20,9 +20,7 @@ app.get('/', (req, res) => {
         const collection = client.db("trump-spending").collection("propublica_trump_spending");
         const response = {}
 
-        // - - - - - - -
-        // Look for distinct value requests EX: "type=all"
-        let distinctValues = [];
+        // - - - - - - - Look for distinct value requests EX: "type=all"
 
         Object.entries(criteria).forEach(entry => {
             let key = entry[0];
@@ -30,16 +28,15 @@ app.get('/', (req, res) => {
             if (value == "all") {
                 collection.distinct(key)
                     .then(resp => {
-                        let distinct = { key : value }
-                        distinctValues.push(distinct);
+                        let distinct = { [key] : resp }
+                        console.log(distinct);
                         // Finding a way to not disrupt rest of queries...
                         // May need to be its own route
                         // delete criteria[key];
                     })
             }
         })
-
-        console.log(distinctValues);
+        
         // - - - - - - -
 
         collection.find(criteria)

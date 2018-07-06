@@ -6,14 +6,16 @@ const mongoose = require('mongoose');
 const morgan = require('morgan'); 
 app.use(morgan('dev'));
 
+// mongoose
 const spendingRoutes = require('./api/routes/spending');
 const mongooseOptions = { useNewUrlParser: false };
 mongoose.connect('mongodb+srv://agbales:' + process.env.MONGO_ATLAS_PW + 
-                '@trump-spending-bbdqf.gcp.mongodb.net/propublica-trump-spending?retryWrites=true?replicaSet=set-999999999999999999999999', mongooseOptions);
+                '@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending?retryWrites=true?replicaSet=set-999999999999999999999999', mongooseOptions);
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('connected to mongoose')
+    console.log('mongoose connected')
 });
 
 app.use('/spending', spendingRoutes);

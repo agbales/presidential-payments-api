@@ -8,8 +8,6 @@ router.get('/', (req, res, next) => {
     Expenditure.find()
         .exec()
         .then(expenditures => {
-            console.log('hit expenditure')
-            console.log(expenditures);
             if (expenditures) {
                 res.status(200).json(expenditures);
             } else {
@@ -17,7 +15,6 @@ router.get('/', (req, res, next) => {
             }
         })
         .catch(err => {
-            console.log(err);
             res.status(500).json({
                 message: err
             });

@@ -8,20 +8,28 @@ const morgan = require('morgan');
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
+    let queries = req.query;
+    console.log(queries);
+
+    // db.inventory.find( { $and: [ { price: { $ne: 1.99 } }, { price: { $exists: true } } ] } )
+
     const uri = "mongodb+srv://agbales:" + process.env.MONGO_ATLAS_PW + "@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending";
     mongo.connect(uri, { useNewUrlParser: false }, function(err, client) {
         const collection = client.db("trump-spending").collection("propublica_trump_spending");
-        collection.findOne({type:"FEC"})
+        collection.find({ amount: { $gt: 100 } })
+            // .forEach( function(results) { 
+
+            // });
+            .toArray()
             .then(resp => {
-                console.log(resp)
-                res.status(200).json({message: resp})
+                res.status(200).json({item: resp})
+                client.close();
             })
             .catch(err => {
                 res.status(500).json({
                     message: err
                 });
             });
-        client.close();
     });
 });
 

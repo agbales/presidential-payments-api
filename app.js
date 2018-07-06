@@ -18,21 +18,29 @@ app.get('/', (req, res) => {
     const uri = "mongodb+srv://agbales:" + process.env.MONGO_ATLAS_PW + "@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending";
     mongo.connect(uri, { useNewUrlParser: false }, function(err, client) {
         const collection = client.db("trump-spending").collection("propublica_trump_spending");
+        const response = {}
+
+        // - - - - - - -
+        // Look for distinct value requests EX: "type=all"
+        let distinctValues = [];
 
         Object.entries(criteria).forEach(entry => {
             let key = entry[0];
             let value = entry[1];
-
             if (value == "all") {
                 collection.distinct(key)
                     .then(resp => {
-                        res.status(200).json({ 
-                            all: resp
-                        })
-                        client.close();
+                        let distinct = { key : value }
+                        distinctValues.push(distinct);
+                        // Finding a way to not disrupt rest of queries...
+                        // May need to be its own route
+                        // delete criteria[key];
                     })
             }
-        });
+        })
+
+        console.log(distinctValues);
+        // - - - - - - -
 
         collection.find(criteria)
             .toArray()

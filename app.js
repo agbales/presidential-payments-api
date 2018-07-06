@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     }
 
     console.log("criteria", criteria);
-    
+
     const uri = "mongodb+srv://agbales:" + process.env.MONGO_ATLAS_PW + "@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending";
     mongo.connect(uri, { useNewUrlParser: false }, function(err, client) {
         const collection = client.db("trump-spending").collection("propublica_trump_spending");

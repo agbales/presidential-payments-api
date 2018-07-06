@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const Expenditure = require('../models/expenditure');
 
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
     Expenditure.find()
         .exec()
         .then(expenditures => {
@@ -39,8 +39,14 @@ router.get('/:source', (req, res, next) => {
     // }
 });
 
-router.get('/:date', (req, res, next) => {
-    const date = req.params.date
+router.get('/:id', (req, res, next) => {
+    const id = req.params.id
+    Expenditure.findById(id)
+        .exec()
+        .then(doc => {
+            console.log(doc);
+        })
+        .catch(err => console.log(err));
     // filter... 
     // res.status(200).json({ ... })
 });

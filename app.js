@@ -8,9 +8,7 @@ app.use(morgan('dev'));
 
 const spendingRoutes = require('./api/routes/spending');
 
-mongoose.connect('mongodb+srv://agbales:' + process.env.MONGO_ATLASS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/test?retryWrites=true',{
-    useMongoClient: true
-})
+mongoose.connect('mongodb+srv://agbales:' + process.env.MONGO_ATLASS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/test?retryWrites=true')
 
 app.use('/spending', spendingRoutes);
 app.use((req, res, next) => {

@@ -5,7 +5,7 @@ const expenditureSchema = mongoose.Schema({
     type: String,
     source: String,
     date: String,
-    amount: Number,
+    amount: String,
     purpose_scrubbed: String,
     property_scrubbed: String,
     purpose: String,

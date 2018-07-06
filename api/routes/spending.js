@@ -5,30 +5,23 @@ const mongoose = require('mongoose');
 const Expenditure = require('../models/expenditure');
 
 router.get('/', (req, res, next) => {
-    db.trump-spending.find()
-    .then(expenditures => {
-        console.log(expenditures);
-        res.status(200).json(expenditures);
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json({
-            message: err
-        });
-    })
-    
-    // Expenditure.find()
-    //     .exec()
-    //     .then(expenditures => {
-    //         console.log(expenditures);
-    //         res.status(200).json(expenditures);
-    //     })
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.status(500).json({
-    //             message: err
-    //         });
-    //     })
+    Expenditure.find()
+        .exec()
+        .then(expenditures => {
+            console.log(expenditures);
+            if (expenditures) {
+                res.status(200).json(expenditures);
+            } else {
+                res.status(404).json({ message: "no expenditures available"});
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                message: err
+            });
+        })
+
     // let queries = req.query;
     // res.status(200).json({
     //     message: 'Handling GET to /spending',

@@ -14,4 +14,4 @@ const expenditureSchema = mongoose.Schema({
     state: String
 })
 
-module.exports = mongoose.model('Expenditures', expenditureSchema);
+module.exports = mongoose.model('Expenditures', expenditureSchema, 'propublica_trump_spending');

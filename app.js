@@ -7,9 +7,13 @@ const morgan = require('morgan');
 app.use(morgan('dev'));
 
 const spendingRoutes = require('./api/routes/spending');
-
-mongoose.connect('mongodb+srv://agbales:' + process.env.MONGO_ATLASS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/test?retryWrites=true', { 
-    useNewUrlParser: true 
+const mongooseOptions = { useNewUrlParser: false };
+mongoose.connect('mongodb+srv://agbales:' + process.env.MONGO_ATLAS_PW + 
+                '@trump-spending-bbdqf.gcp.mongodb.net/propublica-trump-spending?retryWrites=true?replicaSet=set-999999999999999999999999', mongooseOptions);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('connected to mongoose')
 });
 
 app.use('/spending', spendingRoutes);

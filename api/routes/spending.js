@@ -8,6 +8,7 @@ router.get('/', (req, res, next) => {
     Expenditure.find()
         .exec()
         .then(expenditures => {
+            console.log('hit expenditure')
             console.log(expenditures);
             if (expenditures) {
                 res.status(200).json(expenditures);
@@ -20,31 +21,25 @@ router.get('/', (req, res, next) => {
             res.status(500).json({
                 message: err
             });
-        })
-
-    // let queries = req.query;
-    // res.status(200).json({
-    //     message: 'Handling GET to /spending',
-    //     queries: queries
-    // })
+        });
 });
 
 router.get('/:source', (req, res, next) => {
-    const source = req.params.source;
-    const queries = req.query;
-    const parsed = queryString.parse(req.query);
+    // const source = req.params.source;
+    // const queries = req.query;
+    // const parsed = queryString.parse(req.query);
 
-    if (source == "all") {
-        res.status(200).json({ 
-            message: "return all sources :) "
-        });
-    } else {
-        res.status(200).json({ 
-            message: "all sources :) ",
-            query: queries,
-            queryString: parsed
-        });
-    }
+    // if (source == "all") {
+    //     res.status(200).json({ 
+    //         message: "return all sources :) "
+    //     });
+    // } else {
+    //     res.status(200).json({ 
+    //         message: "all sources :) ",
+    //         query: queries,
+    //         queryString: parsed
+    //     });
+    // }
 });
 
 router.get('/:date', (req, res, next) => {

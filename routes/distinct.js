@@ -10,11 +10,28 @@ router.get('/', function(req, res) {
             .then(entry => {
                 let keys = []
                 for (var key in entry) { 
-                    console.log(key) ; 
                     keys.push(key)
                 }
-                res.status(200).json(keys);
-                client.close();
+                return keys;
+            })
+            .then(keys => {
+                let response = keys.map(key => {
+                    return new Promise((resolve, reject) => {
+                        collection.distinct(key)
+                            .then(resp => {
+                                console.log(resp);
+                                return { [key] : resp };
+                            })
+                            .catch(err => console.log(err))
+                    });
+                })
+    
+                Promise.all(response)
+                    .then(()=> {
+                        client.close();
+                        console.log(response);
+                        res.status(200).json(response);
+                    })
             })
             .catch(err => {
                 res.status(500).json({

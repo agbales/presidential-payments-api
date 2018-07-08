@@ -4,13 +4,13 @@ A RESTful API for ProPublica's Presedenital Payments Data.
 
 ## Routes
 
-/distinct
+**/distinct**
 
-**Distinct** is a helpful route because it returns every distinct value from every database key. So, you can get a quick overview of the source, property, purpose, or other attributes associated with the spending.
+This is a helpful route because it returns every distinct value from every database key. So, you can get a quick overview of the source, property, purpose, or other attributes associated with the spending.
 
-/expenditures 
+**/expenditures**
 
-**expenditures** accepts queries for the database. See the example query below.
+Expenditures accepts queries for the database. See the example query below.
 
 ## Example Query
 

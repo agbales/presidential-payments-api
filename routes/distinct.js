@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mongo = require('mongodb').MongoClient;
+const axios = require('axios');
 
 router.get('/', function(req, res) {
     const uri = 'mongodb+srv://agbales:' + process.env.MONGO_ATLAS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending';
@@ -12,22 +13,21 @@ router.get('/', function(req, res) {
                 for (var key in entry) { 
                     keys.push(key)
                 }
+                keys = keys.filter(key => key !== '_id');
                 return keys;
             })
             .then(keys => {
-                let response = keys.map(key => {
-                    return new Promise((resolve, reject) => {
-                        collection.distinct(key)
+                const results = keys.map(async key => {
+                    let distinctValues = collection.distinct(key)
                             .then(resp => {
-                                console.log(resp);
                                 return { [key] : resp };
                             })
                             .catch(err => console.log(err))
-                    });
+                    return distinctValues;
                 })
-    
-                Promise.all(response)
-                    .then(()=> {
+
+                Promise.all(results)
+                    .then(response => {
                         client.close();
                         console.log(response);
                         res.status(200).json(response);

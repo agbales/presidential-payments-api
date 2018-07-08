@@ -16,6 +16,7 @@ app.use((req, res, next) => {
 });
 
 // Routes
+app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use('/distinct', distinctRoute);
 app.use('/expenditures', expendituresRoute);
 

@@ -1,0 +1,30 @@
+swagger: "2.0"
+info:
+  title: Presidential Spending
+  description: Searchable expenditures from Propublica's [Spending at Trump Properties] data(https://www.propublica.org/datastore/dataset/spending-at-trump-properties).
+  version: 0.0.1
+paths:
+  /expenditures:
+    get:
+      summary: All cataloged expenditures made to trump properties
+      responses:
+        '200':
+          description: A JSON array of expenditures
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+  /distinct:
+    get:
+      summary: List of distinct values for given data property
+      responses:
+        '200':
+          description: A JSON array of data keys and distinct values
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string

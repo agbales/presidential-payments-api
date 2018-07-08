@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
-const distinctRoute = require('./routes/distinct');
-const expendituresRoute = require('./routes/expenditures');
+const distinctRoute = require('./api/routes/distinct');
+const expendituresRoute = require('./api/routes/expenditures');
 
 // Logging
 const morgan = require('morgan'); 

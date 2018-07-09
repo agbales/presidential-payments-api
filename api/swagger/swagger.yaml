@@ -1,30 +1,112 @@
 swagger: "2.0"
 info:
   title: Presidential Spending
-  description: Searchable expenditures from Propublica's [Spending at Trump Properties] data(https://www.propublica.org/datastore/dataset/spending-at-trump-properties).
+  description: Searchable expenditures from [Propublica's Spending at Trump Properties](https://www.propublica.org/datastore/dataset/spending-at-trump-properties) data.
   version: 0.0.1
 paths:
   /expenditures:
     get:
-      summary: All cataloged expenditures made to trump properties
+      summary: All expendiures
+      description: Filter expenditures with the use of queries.
+      parameters:
+        - in: query
+          name: type
+          type: string
+          description: Do
+          required: false
+        - in: query
+          name: source
+          type: string
+          required: false
+          description: Entity making payment
+        - in: query
+          name: amount
+          type: string
+          required: false
+          description: Payment amount
+        - in: query
+          name: purpose_scrubbed
+          type: string
+          required: false
+          description: Scrubbed purpose
+        - in: query
+          name: property_scrubbed
+          type: string
+          required: false
+          description: Scrubbed property
+        - in: query
+          name: purpose
+          type: string
+          required: false
+          description: Purpose
+        - in: query
+          name: property
+          type: string
+          required: false
+          description: Property
+        - in: query
+          name: city
+          type: string
+          required: false
+          description: City
+        - in: query
+          name: state
+          type: string
+          required: false
+          description: State
       responses:
-        '200':
-          description: A JSON array of expenditures
-          content:
-            application/json:
-              schema: 
-                type: array
-                items: 
+        "200":
+          description: OK
+          schema:
+            type: array
+            items:
+              properties:
+                _id:
+                  type: string
+                type:
+                  type: string
+                source:
+                  type: string
+                amount:
+                  type: float
+                purpose_scrubbed:
+                  type: string
+                property_scrubbed:
+                  type: string
+                purpose:
+                  type: string
+                property:
+                  type: string
+                city:
+                  type: string
+                state:
                   type: string
   /distinct:
     get:
-      summary: List of distinct values for given data property
+      summary: All distinct values
+      description: Returns all distinct values for each query parameter.
       responses:
-        '200':
-          description: A JSON array of data keys and distinct values
-          content:
-            application/json:
-              schema: 
-                type: array
-                items: 
-                  type: string
+          "200":
+            description: OK
+            schema:
+              type: array
+              items:
+                properties:
+                  type:
+                    type: array
+                  source:
+                    type: array
+                  amount:
+                    type: array
+                  purpose_scrubbed:
+                    type: array
+                  property_scrubbed:
+                    type: array
+                  purpose:
+                    type: array
+                  property:
+                    type: array
+                  city:
+                    type: array
+                  state:
+                    type: array

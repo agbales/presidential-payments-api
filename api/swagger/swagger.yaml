@@ -60,28 +60,36 @@ paths:
           schema:
             type: array
             items:
+              type: object
               properties:
-                _id:
-                  type: string
-                type:
-                  type: string
-                source:
-                  type: string
-                amount:
+                response_total:
                   type: number
-                  format: float
-                purpose_scrubbed:
-                  type: string
-                property_scrubbed:
-                  type: string
-                purpose:
-                  type: string
-                property:
-                  type: string
-                city:
-                  type: string
-                state:
-                  type: string
+                expenditures:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      _id:
+                        type: string
+                      type:
+                        type: string
+                      source:
+                        type: string
+                      amount:
+                        type: number
+                        format: float
+                      purpose_scrubbed:
+                        type: string
+                      property_scrubbed:
+                        type: string
+                      purpose:
+                        type: string
+                      property:
+                        type: string
+                      city:
+                        type: string
+                      state:
+                        type: string
   /distinct:
     get:
       summary: All distinct values

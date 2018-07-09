@@ -25,6 +25,11 @@ paths:
           required: false
           description: Entity making payment. ( soruce="Donald J. Trump for President, Inc.")
         - in: query
+          name: date
+          type: string
+          required: false
+          description: Date. ( date="May 05, 2015" (=, >, >=, <, <=) )
+        - in: query
           name: amount
           type: string
           required: false
@@ -43,7 +48,7 @@ paths:
           name: purpose
           type: string
           required: false
-          description: Fine-tuned purpose. ( purpose="Beverages for volunteers")
+          description: Fine-tuned purpose. ( purpose="Beverages for volunteers" )
         - in: query
           name: property
           type: string
@@ -79,6 +84,8 @@ paths:
                       type:
                         type: string
                       source:
+                        type: string
+                      date:
                         type: string
                       amount:
                         type: number

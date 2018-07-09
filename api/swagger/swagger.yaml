@@ -12,48 +12,48 @@ paths:
         - in: query
           name: type
           type: string
-          description: Do
+          description: Type of filing. ( type=FEC )
           required: false
         - in: query
           name: source
           type: string
           required: false
-          description: Entity making payment
+          description: Entity making payment. ( soruce="Donald J. Trump for President, Inc.")
         - in: query
           name: amount
           type: string
           required: false
-          description: Payment amount
+          description: Payment amount. ( amount=9000 (=, >, >=, <, <=) )
         - in: query
           name: purpose_scrubbed
           type: string
           required: false
-          description: Scrubbed purpose
+          description: Broad purposes. ( purpose_scrubbed=Rent )
         - in: query
           name: property_scrubbed
           type: string
           required: false
-          description: Scrubbed property
+          description: Scrubbed property. ( property="Trump Hotel D.C." )
         - in: query
           name: purpose
           type: string
           required: false
-          description: Purpose
+          description: Fine-tuned purpose. ( purpose="Beverages for volunteers")
         - in: query
           name: property
           type: string
           required: false
-          description: Property
+          description: Property. ( property="Trump Hotel D.C." )
         - in: query
           name: city
           type: string
           required: false
-          description: City
+          description: City. ( city="Plam Beach")
         - in: query
           name: state
           type: string
           required: false
-          description: State
+          description: State. ( state=NY (State abbreviations only) )
       responses:
         "200":
           description: OK

@@ -1,10 +1,10 @@
 # Presidential Payments API
 
-A RESTful API for ProPublica's Presedenital Payments Data.
+A RESTful API for ProPublica's [Spending at Trump Properties](https://www.propublica.org/datastore/dataset/spending-at-trump-properties) CSV.
 
 ## Documentation
 
-###Swagger
+##Swagger
 The API documentation can be found [here](https://propublicatrump-spending.appspot.com/api-docs/). Swagger allows you to test out API calls directly from the docs. Explainatio of the routes:
 
 [https://propublicatrump-spending.appspot.com/distinct](https://propublicatrump-spending.appspot.com//distinct)

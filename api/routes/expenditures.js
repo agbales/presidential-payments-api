@@ -19,7 +19,6 @@ router.get('/', function(req, res) {
             .toArray()
             .then(resp => {
                 res.status(200).json({ 
-                    query: criteria,
                     response_total: resp.length,
                     expenditures: resp
                 })

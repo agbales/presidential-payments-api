@@ -2,35 +2,40 @@
 
 A RESTful API for ProPublica's Presedenital Payments Data.
 
-## Routes
+## Documentation
 
-**/distinct**
+###Swagger
+The API documentation can be found [here](https://propublicatrump-spending.appspot.com/api-docs/). Swagger allows you to test out API calls directly from the docs. Explainatio of the routes:
 
-This is a helpful route because it returns every distinct value from every database key. So, you can get a quick overview of the source, property, purpose, or other attributes associated with the spending.
+[https://propublicatrump-spending.appspot.com/distinct](https://propublicatrump-spending.appspot.com//distinct)
 
-**/expenditures**
+This returns every distinct value from every database key. So, you can get a quick overview of the source, property, purpose, or other attributes associated with the spending.
 
-Expenditures accepts queries for the database. See the example query below.
+[https://propublicatrump-spending.appspot.com/expenditures](https://propublicatrump-spending.appspot.com/expenditures)
 
-## Example Query
-
-```
-http://localhost:3000/?amount%3E=10000&amount%3C=15000&state=FL
-```
-
-The response includes the parsed query, total number of records returned, & the matching expenditures.
-
-Example resonse:
+This returns **all** expenditures. Use queries to limit the scope of the response. Here's an example:
 
 ```
-{    
+https://propublicatrump-spending.appspot.com/expenditures?amount%3E=10000&amount%3C=15000&state=FL
+```
+
+This will create the following query for MongoDB:
+
+```
     "query": {
         "amount": {
         "$gte": 10000,
         "$lte": 15000
         },
         "state": "FL"
-    },
+    }
+```
+This will return spending at Trump's Florida properties that are greater than or equal to $10,000 and less than or equal to $15,000.
+
+The response:
+
+```
+{    
     "response_total": 3,
     "expenditures": [
         {

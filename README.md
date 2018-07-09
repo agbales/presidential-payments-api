@@ -3,9 +3,9 @@
 A RESTful API for ProPublica's [Spending at Trump Properties](https://www.propublica.org/datastore/dataset/spending-at-trump-properties) CSV.
 
 ## Documentation
+The OpenAPI documentation can be found at: [https://propublicatrump-spending.appspot.com/api-docs/](https://propublicatrump-spending.appspot.com/api-docs/). Swagger allows you to test out API calls directly from the docs. 
 
-#### Swagger
-The API documentation can be found [here](https://propublicatrump-spending.appspot.com/api-docs/). Swagger allows you to test out API calls directly from the docs. Explainatio of the routes:
+## About the Routes
 
 [https://propublicatrump-spending.appspot.com/distinct](https://propublicatrump-spending.appspot.com//distinct)
 
@@ -13,7 +13,9 @@ This returns every distinct value from every database key. So, you can get a qui
 
 [https://propublicatrump-spending.appspot.com/expenditures](https://propublicatrump-spending.appspot.com/expenditures)
 
-This returns **all** expenditures. Use queries to limit the scope of the response. Here's an example:
+This returns **all** expenditures. Use queries to limit the scope of the response.
+
+## Example API Request
 
 ```
 https://propublicatrump-spending.appspot.com/expenditures?amount%3E=10000&amount%3C=15000&state=FL

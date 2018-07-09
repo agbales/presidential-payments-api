@@ -68,7 +68,7 @@ paths:
                 source:
                   type: string
                 amount:
-                  type: float
+                  type: number
                 purpose_scrubbed:
                   type: string
                 property_scrubbed:
@@ -94,19 +94,37 @@ paths:
                 properties:
                   type:
                     type: array
+                    items:
+                      type: string
                   source:
                     type: array
+                    items:
+                      type: string
                   amount:
                     type: array
+                    items:
+                      type: number
                   purpose_scrubbed:
                     type: array
+                    items:
+                      type: string
                   property_scrubbed:
                     type: array
+                    items:
+                      type: string
                   purpose:
                     type: array
+                    items:
+                      type: string
                   property:
                     type: array
+                    items:
+                      type: string
                   city:
                     type: array
+                    items:
+                      type: string
                   state:
                     type: array
+                    items:
+                      type: string

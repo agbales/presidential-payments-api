@@ -48,7 +48,7 @@ paths:
           name: city
           type: string
           required: false
-          description: City. ( city="Plam Beach")
+          description: City. ( city="Plam Beach" )
         - in: query
           name: state
           type: string

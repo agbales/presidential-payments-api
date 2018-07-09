@@ -16,7 +16,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', express.static('public'))
+app.use('/', express.static('public'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/distinct', distinctRoute);
 app.use('/expenditures', expendituresRoute);

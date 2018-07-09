@@ -3,7 +3,6 @@ const router = express.Router();
 const mongo = require('mongodb').MongoClient;
 const q2m = require('query-to-mongo');
 const uri = 'mongodb+srv://agbales:' + process.env.MONGO_ATLAS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending';
-require('dotenv').config()
 
 router.get('/', function(req, res) {
 

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Song+Myung');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.title {
+    font-family: 'Song Myung', serif;
+}
+
+.info {
+    font-family: 'Raleway', sans-serif;
+    text-align: left;
+}
+
+.jumbotron {
+    text-align: center;
+    border-bottom: .05rem solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    padding: .75rem 1.5rem;
+    font-size: 1.5rem;
+}
+  
+@media screen and (min-width: 48em) {
+    .header,
+    .marketing,
+    .footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .header {
+        margin-bottom: 2rem;
+    }
+    .jumbotron {
+        border-bottom: 0;
+    }
+}

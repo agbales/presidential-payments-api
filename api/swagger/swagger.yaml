@@ -9,6 +9,7 @@ paths:
     get:
       summary: All expendiures
       description: Filter expenditures with the use of queries.
+      operationId: getExpenditures
       parameters:
         - in: query
           name: type
@@ -95,6 +96,7 @@ paths:
     get:
       summary: All distinct values
       description: Returns all distinct values for each query parameter.
+      operationId: getDistinctValues
       responses:
           "200":
             description: OK

@@ -1,5 +1,5 @@
 swagger: "2.0"
-host: appspot.com # google cloud
+host: propublicatrump-spending.appspot.com
 info:
   title: Presidential Spending
   description: Searchable expenditures from [Propublica's Spending at Trump Properties](https://www.propublica.org/datastore/dataset/spending-at-trump-properties) data.

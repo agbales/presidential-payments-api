@@ -2,3 +2,4 @@ nodemon.json
 node_modules/
 package-lock.json
 .DS_store
+.env

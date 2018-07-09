@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const mongo = require('mongodb').MongoClient;
 const q2m = require('query-to-mongo');
+const uri = 'mongodb+srv://agbales:' + process.env.MONGO_ATLAS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending';
+require('dotenv').config()
 
 router.get('/', function(req, res) {
 
@@ -9,7 +11,6 @@ router.get('/', function(req, res) {
     let mongoQueries = q2m(queries);
     let criteria = mongoQueries.criteria;
 
-    const uri = 'mongodb+srv://agbales:' + process.env.MONGO_ATLAS_PW + '@trump-spending-bbdqf.gcp.mongodb.net/propublica_trump_spending';
     mongo.connect(uri, { useNewUrlParser: false }, function(err, client) {
         const collection = client.db('trump-spending').collection('propublica_trump_spending');
         collection.find(criteria)

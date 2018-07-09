@@ -28,12 +28,12 @@ paths:
           name: date
           type: string
           required: false
-          description: Date. ( date="May 05, 2015" (=, >, >=, <, <=) )
+          description: Date. ( date="May 05, 2015" (=, !=, >, <, >=, <=) )
         - in: query
           name: amount
           type: string
           required: false
-          description: Payment amount. ( amount=9000 (=, >, >=, <, <=) )
+          description: Payment amount. ( amount=9000 (=, !=, >, <, >=, <=) )
         - in: query
           name: purpose_scrubbed
           type: string

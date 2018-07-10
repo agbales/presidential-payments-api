@@ -34,15 +34,15 @@ describe('Expenditures', function() {
               res.body.should.have.property('expenditures');
               res.body.expenditures.should.be.a('array');
 
-              // This works, but schema has error in syntax still...
+              
               res.body.expenditures.every(expenditure => { 
                 expenditure.should.be.a('object');
                 expenditure.should.have.all.keys(['_id', 'type', 'source', 'date', 'amount', 
                                                   'purpose_scrubbed', 'property_scrubbed', 'purpose', 
                                                   'property', 'city', 'state']);
+                // Above 'keys' works, but schema has error in syntax...
+                // expenditure.should.be.jsonSchema(expendituresSchema);
               });
-
-              // res.body.expenditures.every(expenditure => expenditure.should.be.jsonSchema(expendituresSchema));
 
               done();
             });

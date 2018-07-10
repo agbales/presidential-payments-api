@@ -1,18 +1,25 @@
-const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../app');
-const should = chai.should();
-
+const chai = require('chai')
+      , expect = chai.expect
+      , should = chai.should();
+chai.use(require('chai-json-schema'));
 chai.use(chaiHttp);
 
-const assert = require('assert');
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function(){
-      assert.equal(-1, [1,2,3].indexOf(4));
-    });
-  });
-});
+const expendituresSchema =  {
+  _id: "string",
+  type: "string",
+  source: "string",
+  date: "string",
+  amount: "number",
+  purpose_scrubbed: "string",
+  property_scrubbed: "string",
+  purpose: "string",
+  property: "string",
+  city: "string",
+  state: "string"
+};
+
 
 describe('Expenditures', function() {
     it('should list ALL expenditures on /expenditures GET', function(done) {
@@ -27,10 +34,16 @@ describe('Expenditures', function() {
               res.body.should.have.property('expenditures');
               res.body.expenditures.should.be.a('array');
 
-              // expenditures array should contain objects
-              //                                   objects should hace X, Y, Z properties                 
-              // have.all.keys(['_id', 'type', 'source', 'date', 'amount', 'purpose_scrubbed',
-              //                                                        'property_scrubbed', 'purpose', 'property', 'city', 'state']);
+              // This works, but schema has error in syntax still...
+              res.body.expenditures.every(expenditure => { 
+                expenditure.should.be.a('object');
+                expenditure.should.have.all.keys(['_id', 'type', 'source', 'date', 'amount', 
+                                                  'purpose_scrubbed', 'property_scrubbed', 'purpose', 
+                                                  'property', 'city', 'state']);
+              });
+
+              // res.body.expenditures.every(expenditure => expenditure.should.be.jsonSchema(expendituresSchema));
+
               done();
             });
     });

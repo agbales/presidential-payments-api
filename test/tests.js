@@ -47,5 +47,18 @@ describe('Expenditures', function() {
               done();
             });
     });
+});
 
+
+describe('Distinct', function() {
+  it('should list ALL distinct on /distinct GET', function(done) {
+    chai.request(app)
+    .get('/expenditures')
+    .end(function(err, res){
+      res.should.have.status(200);
+      res.should.be.json;
+      res.body.should.be.a('object');
+    });
+    done();
+  });
 });

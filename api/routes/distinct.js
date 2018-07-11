@@ -30,7 +30,6 @@ router.get('/', function(req, res) {
                 Promise.all(results)
                     .then(response => {
                         client.close();
-                        console.log(response);
                         res.status(200).json(response);
                     })
             })

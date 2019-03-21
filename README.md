@@ -3,9 +3,11 @@
 A RESTful API for ProPublica's [Spending at Trump Properties](https://www.propublica.org/datastore/dataset/spending-at-trump-properties) CSV.
 
 ## Documentation
-The OpenAPI documentation can be found at: [https://propublicatrump-spending.appspot.com/api-docs/](https://propublicatrump-spending.appspot.com/api-docs/). Swagger allows you to test out API calls directly from the docs. 
+The OpenAPI documentation can be found [here](https://github.com/agbales/presidential-payments-api/blob/master/api/swagger/swagger.yaml).
 
 ## About the Routes
+
+(This API is not currently available!)
 
 [https://propublicatrump-spending.appspot.com/distinct](https://propublicatrump-spending.appspot.com//distinct)
 

@@ -9,11 +9,11 @@ The OpenAPI documentation can be found [here](https://github.com/agbales/preside
 
 (This API is not currently available!)
 
-[https://propublicatrump-spending.appspot.com/distinct](https://propublicatrump-spending.appspot.com//distinct)
+```https://propublicatrump-spending.appspot.com/distinct```
 
 This returns every distinct value from every database key. So, you can get a quick overview of the source, property, purpose, or other attributes associated with the spending.
 
-[https://propublicatrump-spending.appspot.com/expenditures](https://propublicatrump-spending.appspot.com/expenditures)
+```https://propublicatrump-spending.appspot.com/expenditures```
 
 This returns **all** expenditures. Use queries to limit the scope of the response.
 
